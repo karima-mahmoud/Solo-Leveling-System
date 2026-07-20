@@ -1,4 +1,6 @@
 import { Mic, SendHorizontal } from "lucide-react";
+import { chats } from "@/lib/data";
+import ChatBubble from "./ChatBubble";
 
 export default function ChatWindow() {
   return (
@@ -17,6 +19,17 @@ export default function ChatWindow() {
       {/* Messages */}
 
       <div className="p-8 space-y-8 overflow-y-auto">
+      <div className="p-8 space-y-6 overflow-y-auto flex-1">
+
+  {chats.map((chat) => (
+    <ChatBubble
+      key={chat.id}
+      sender={chat.sender}
+      message={chat.message}
+    />
+  ))}
+
+</div>
 
         {/* AI Message */}
 
